@@ -1,0 +1,26 @@
+version: '3'
+services:
+ desktop-v1:
+  container_name: desktop-v1
+  build: ./Desktop.serv1
+  restart: always
+  ports:
+  - "8090:80"
+ desktop-v2:
+  container_name: desktop-v2
+  build: ./Desktop.serv2
+  restart: always
+  ports:
+  - "8091:80"
+ mobile-v1:
+  container_name: mobile-v1
+  build: ./Mobile.serv1
+  restart: always
+  ports:
+  - "8092:80"
+ mobile-v2:
+  container_name: mobile-v2
+  build: ./Mobile.serv2
+  restart: always
+  ports:
+  - "8093:80"
