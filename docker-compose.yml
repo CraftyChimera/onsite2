@@ -6,21 +6,40 @@ services:
   restart: always
   ports:
   - "8090:80"
+  networks:
+  - server
+  
  desktop-v2:
   container_name: desktop-v2
   build: ./Desktop.serv2
   restart: always
   ports:
   - "8091:80"
+  networks:
+  - server
+  
  mobile-v1:
   container_name: mobile-v1
   build: ./Mobile.serv1
   restart: always
   ports:
   - "8092:80"
+  
  mobile-v2:
   container_name: mobile-v2
   build: ./Mobile.serv2
   restart: always
   ports:
   - "8093:80"
+  
+ desktop-bal:
+  container_name: desktop-bal
+  build: ./Desktop.load
+  restart: always
+  ports:
+  - "8089:80"
+  networks:
+  - server
+
+networks:
+  server: {}  
